@@ -9,7 +9,6 @@ public class Turma {
     private String semestre;
 
     private Turma() {
-
     }
 
     public Turma(String codigo, Disciplina disciplina,

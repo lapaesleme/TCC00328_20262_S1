@@ -8,7 +8,6 @@ public class Professor {
     private String email;
 
     private Professor() {
-
     }
 
     public Professor(String idProfessor, String nome, String departamento, String email) {
