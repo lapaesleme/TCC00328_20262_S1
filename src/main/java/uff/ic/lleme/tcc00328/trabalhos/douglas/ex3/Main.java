@@ -12,7 +12,11 @@ public class Main {
 
         // Oferecimento de turma
         Disciplina poo = new Disciplina("TCC00328", "POO", "60", "");
-        Turma s1 = new Turma("S1", poo, "20271", "11-13");
+
+        String codigoTurma = "S1";
+        String semestre = "20271";
+        String horario = "11-13";
+        Turma s1 = SistemaAcademico.oferecerTurma(codigoTurma, poo, semestre, horario);
 
         // Alocação de professor
         Professor la = new Professor("123", "Luiz André", "Ciencia da Computacao", "lapaesleme@id.uff.br");
