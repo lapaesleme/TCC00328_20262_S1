@@ -1,3 +1,5 @@
+package uff.ic.lleme.tcc00328.trabalhos.LuizaGonzalez.SistemaAcademico;
+
 import java.util.Scanner;
 
 public class Notas {
