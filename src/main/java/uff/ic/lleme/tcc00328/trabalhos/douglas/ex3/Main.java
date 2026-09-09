@@ -8,23 +8,47 @@ import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Turma;
 
 public class Main {
 
+    private static Aluno aluno;
+
     public static void main(String[] args) {
 
-        // Oferecimento de turma
+        // Abre janela principal da aplicação
+        //
+        // 1 - Oferecimento de turma
+        // 1.1 - Escolher disciplina
         Disciplina poo = new Disciplina("TCC00328", "POO", "60", "");
 
+        // 1.2 - Entrar dados da turma
         String codigoTurma = "S1";
         String semestre = "20271";
         String horario = "11-13";
-        Turma s1 = SistemaAcademico.oferecerTurma(codigoTurma, poo, semestre, horario);
+        Turma s1 = SistemaAcademico.criticarDadosTurma(codigoTurma, poo, semestre, horario);
+        // Fim processo criação de turma
 
-        // Alocação de professor
+        // 2 - Alocação de professor
+        // 1.2 - Escolha da discplina
+        Disciplina disciplina = poo;
+        // 1.3 - Escolha da turma
+        Turma turma = s1;
+        // 1.4 - Alocação de professor
+        // 1.4.1 - Escolha de professor
         Professor la = new Professor("123", "Luiz André", "Ciencia da Computacao", "lapaesleme@id.uff.br");
-        s1.setProfessor(la);
+        turma.setProfessor(la);
+        // Fim processo alocação Professor
 
         // Pedir inscrição
-        Aluno douglas = new Aluno("123456", "Douglas", "douglas@id.uff.br");
-        Inscricao inscricao = new Inscricao(douglas, s1);
+        // 1.1 - Login do aluno no Sistema Acadêmico
+        aluno = new Aluno("123456", "Douglas", "douglas@id.uff.br");
+        Aluno.nacionalidade = "brasileiro";
+
+        //aluno = new Aluno("123", "André", "lapaesleme@id.uff.br");
+        //Aluno.nacionalidade = "brasileiro";
+        // 1.1 - Escolha da disciplina
+        Disciplina disciplina2 = poo;
+        // 1.1 - Escolha da turma
+        Turma turma2 = s1;
+        Inscricao inscricao = SistemaAcademico.criarPedidoInscricao(aluno, turma2);
+        // Fim processo de pedido de incrição
         System.out.println(inscricao.getDataPedido());
     }
 }

@@ -5,6 +5,7 @@ public class Aluno {
     private String matricula;
     private String nome;
     private String email;
+    public static String nacionalidade;
 
     public Aluno(String matricula, String nome, String email) {
         this.matricula = matricula;
