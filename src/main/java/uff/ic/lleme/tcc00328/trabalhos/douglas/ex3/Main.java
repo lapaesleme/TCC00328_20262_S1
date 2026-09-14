@@ -50,5 +50,11 @@ public class Main {
         Inscricao inscricao = SistemaAcademico.criarPedidoInscricao(aluno, turma2);
         // Fim processo de pedido de incrição
         System.out.println(inscricao.getDataPedido());
+
+        int a = 2;
+        Integer b = 2;
+        long l = b.longValue();
+        int c = b * 2;
+        System.out.println(c);
     }
 }
