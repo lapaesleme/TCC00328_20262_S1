@@ -5,6 +5,7 @@ public class Aluno {
     private String matricula;
     private String nome;
     private String email;
+    public static String nacionalidade;
 
     public Aluno(String matricula, String nome, String email) {
         this.matricula = matricula;
@@ -27,5 +28,18 @@ public class Aluno {
     public void setEmail(String email) {
         this.email = email;
     }
-}
 
+    /**
+     * @param matricula the matricula to set
+     */
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
