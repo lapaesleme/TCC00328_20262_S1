@@ -4,19 +4,20 @@
  */
 package uff.ic.lleme.tcc00328.trabalhos.esther.ex4.data;
 
-import uff.ic.lleme.tcc00328.trabalhos.esther.ex4.data.Jogador;
-
 /**
  *
  * @author aluno
  */
 public class Rodada {
+
     private int numero;
     private int qtdJogadores;
-    private Jogador jogadores [];
-    
-    public Rodada(int numero, int qtdJogadores, Jogador jogadores []){
-        this.numero=numero;
+    //private Jogador jogadores[];
+    private Lancamento[] lancamentos;
+    private Partida partida;
+
+    public Rodada(int numero, int qtdJogadores, Jogador jogadores[]) {
+        this.numero = numero;
         this.qtdJogadores = qtdJogadores;
         this.jogadores = jogadores;
     }
@@ -32,6 +33,9 @@ public class Rodada {
     public Jogador[] getJogadores() {
         return jogadores;
     }
-    
-    
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+    }
+
 }

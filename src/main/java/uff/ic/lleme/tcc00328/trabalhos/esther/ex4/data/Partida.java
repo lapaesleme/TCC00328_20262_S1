@@ -11,13 +11,22 @@ package uff.ic.lleme.tcc00328.trabalhos.esther.ex4.data;
 public class Partida {
 
     private int numero;
-   
-    public Partida (int numero){
-        this.numero=numero;
+    private Jogador[] jogadores;
+    private int qtdJogadores;
+    private Rodada[] rodadas;
+    private int n;
+
+    public Partida(int numero) {
+        this.numero = numero;
     }
-    
-    public int getNumero(){
+
+    public int getNumero() {
         return numero;
     }
-    
+
+    public void addRodada(Rodada rodada) {
+        rodadas[n++] = rodada;
+        rodada.setPartida(this);
+    }
+
 }
