@@ -11,11 +11,9 @@ package uff.ic.lleme.tcc00328.trabalhos.esther.ex4.data;
 public class Dado {
     
     private int face;
-    private int identificador;
     
-    public Dado (int face, int identificador){
+    public Dado (int face){
         this.face= face;
-        this.identificador = identificador;
     }
 
     /**
@@ -31,21 +29,5 @@ public class Dado {
     public void setFace(int face) {
         this.face = face;
     }
-
-    /**
-     * @return the identificador
-     */
-    public int getIdentificador() {
-        return identificador;
-    }
-
-    /**
-     * @param identificador the identificador to set
-     */
-    public void setIdentificador(int identificador) {
-        this.identificador = identificador;
-    }
-    
-
 }
 
