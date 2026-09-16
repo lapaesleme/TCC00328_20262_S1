@@ -8,6 +8,6 @@ package uff.ic.lleme.tcc00328.trabalhos.esther.ex4;
  *
  * @author User
  */
-public class Calculadora {
+public abstract class Sistema {
     
 }
