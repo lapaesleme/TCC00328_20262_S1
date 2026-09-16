@@ -40,8 +40,7 @@ public class Main {
         // 5 - Processar lançamentos
 
         
-        // Exemplo fictício do que faríamos em seguida:
-        // Lancamento l1 = Sistema.realizarLancamentoInicial(j1, dado1, dado2);
+   
     }
 }
   
