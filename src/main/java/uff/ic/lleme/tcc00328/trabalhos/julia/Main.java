@@ -1,10 +1,10 @@
-package uff.ic.lleme.tcc00328.trabalhos.douglas.ex3;
+package uff.ic.lleme.tcc00328.trabalhos.julia;
 
-import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Aluno;
-import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Disciplina;
-import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Inscricao;
-import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Professor;
-import uff.ic.lleme.tcc00328.trabalhos.douglas.ex3.data.Turma;
+import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Aluno;
+import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Disciplina;
+import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Inscricao;
+import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Professor;
+import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Turma;
 
 public class Main {
 
@@ -50,11 +50,5 @@ public class Main {
         Inscricao inscricao = SistemaAcademico.criarPedidoInscricao(aluno, turma2);
         // Fim processo de pedido de incrição
         System.out.println(inscricao.getDataPedido());
-
-        int a = 2;
-        Integer b = 2;
-        long l = b.longValue();
-        int c = b * 2;
-        System.out.println(c);
     }
 }
