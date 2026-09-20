@@ -11,12 +11,11 @@ public class Turma {
     private Turma(){
     }
     
-    public Turma(String codigo, Disciplina disciplina){
+    public Turma(String codigo, Disciplina disciplina, String semestre, String horario){
         this.codigo = codigo;
         this.disciplina = disciplina;
-        this.horario = horario;
         this.semestre = semestre;
-        
+        this.horario = horario;
     }
 
     /**
