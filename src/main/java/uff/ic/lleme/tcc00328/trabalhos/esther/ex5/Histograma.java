@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.trabalhos.esther.ex1;
+package uff.ic.lleme.tcc00328.trabalhos.esther.ex5;
 
 /**
 EXERCICIO 1
