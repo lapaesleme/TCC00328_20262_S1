@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.trabalhos.julia;
+package uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data;
 
 import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Aluno;
 import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Disciplina;

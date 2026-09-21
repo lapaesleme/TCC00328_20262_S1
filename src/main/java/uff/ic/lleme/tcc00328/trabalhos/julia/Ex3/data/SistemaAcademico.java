@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package uff.ic.lleme.tcc00328.trabalhos.julia;
+package uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data;
 
 import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Aluno;
 import uff.ic.lleme.tcc00328.trabalhos.julia.Ex3.data.Disciplina;

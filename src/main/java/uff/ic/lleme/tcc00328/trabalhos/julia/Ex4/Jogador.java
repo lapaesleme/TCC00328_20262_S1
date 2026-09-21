@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package uff.ic.lleme.tcc00328.trabalhos.julia.Ex4;
 
-/**
- *
- * @author psmjs
- */
 public class Jogador {
+    private String id;
+    private String nome;
     
+    public Jogador (String id, String nome) {
+        this.id = id;
+        this.nome = nome;
+        
+    }    
 }
