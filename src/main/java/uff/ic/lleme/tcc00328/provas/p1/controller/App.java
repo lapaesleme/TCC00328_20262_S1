@@ -8,31 +8,35 @@ import uff.ic.lleme.tcc00328.provas.p1.model.Prato;
 
 public class App implements Serializable {
 
-    public static Prato[] pratos;
-    public static Pedido[] pedidos;
+    private static Prato[] pratos;
+    private static Pedido[] pedidos;
+    private static int qtdPratos;
+    private static int qtdPedidos;
 
     public void carregarPratos(String filename) throws
             FileNotFoundException {
-        pratos = new Prato[5];
+        pratos = new Prato[100];
+        qtdPratos = 0;
+
         InputStream is = new FileInputStream(filename);
         Scanner sc = new Scanner(is);
-        int i = 0;
         while (sc.hasNext()) {
             double valor = sc.nextDouble();
             String nome = sc.nextLine();
-            Prato prato = new Prato(i, nome, valor);
-            pratos[i++] = prato;
+            Prato prato = new Prato(qtdPratos, nome, valor);
+            pratos[qtdPratos++] = prato;
         }
     }
 
     public void carregarPedidos(String filename) throws
             FileNotFoundException {
         pedidos = new Pedido[100000];
+        qtdPedidos = 0;
+        Pedido pedido = null;
+        int numeroItem = 0;
+
         InputStream is = new FileInputStream(filename);
         Scanner sc = new Scanner(is);
-
-        Pedido pedido = null;
-        int i = 0, j = 0;
         while (sc.hasNext()) {
             int numero = sc.nextInt();
             int quantidade = sc.nextInt();
@@ -41,12 +45,12 @@ public class App implements Serializable {
 
             if (pedido == null || pedido.numero != numero) {
                 pedido = new Pedido(numero);
-                pedidos[j++] = pedido;
-                i = 0;
+                pedidos[qtdPedidos++] = pedido;
+                numeroItem = 0;
             }
 
             Item item = new Item(prato, quantidade);
-            pedido.itens[i++] = item; //navegacao unidirecional
+            pedido.itens[numeroItem++] = item; //navegacao unidirecional
         }
     }
 
@@ -65,7 +69,7 @@ public class App implements Serializable {
     }
 
     public double[] getHistogramaPratosPedidos() {
-        double[] histograma = new double[pratos.length];
+        double[] histograma = new double[qtdPratos];
         double totalPedidos = 0;
         for (Pedido pedido : pedidos)
             if (pedido != null)
