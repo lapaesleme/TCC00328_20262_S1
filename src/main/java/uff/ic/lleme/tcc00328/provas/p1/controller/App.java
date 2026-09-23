@@ -18,8 +18,8 @@ public class App implements Serializable {
         pratos = new Prato[100];
         qtdPratos = 0;
 
-        try (InputStream is = new FileInputStream(filename);
-                Scanner sc = new Scanner(is);) {
+        try (InputStream is = new FileInputStream(filename)) {
+            Scanner sc = new Scanner(is);
             while (sc.hasNext()) {
                 double valor = sc.nextDouble();
                 String nome = sc.nextLine();
@@ -36,8 +36,8 @@ public class App implements Serializable {
         Pedido pedido = null;
         int numeroItem = 0;
 
-        try (InputStream is = new FileInputStream(filename);
-                Scanner sc = new Scanner(is);) {
+        try (InputStream is = new FileInputStream(filename)) {
+            Scanner sc = new Scanner(is);
             while (sc.hasNext()) {
                 int numero = sc.nextInt();
                 int quantidade = sc.nextInt();
