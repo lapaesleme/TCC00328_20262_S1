@@ -18,7 +18,7 @@ public class Pedido {
         this.numero = numero;
     }
 
-    public double valor() {
+    public double getValor() {
         double valor = 0;
         for (Item item : itens)
             if (item != null)

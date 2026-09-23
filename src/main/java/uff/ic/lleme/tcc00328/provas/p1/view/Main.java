@@ -22,7 +22,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Informe o numero do pedido: ");
-        System.out.println(app.buscarPedido(sc.nextInt()).valor());
+        System.out.println(app.buscarPedido(sc.nextInt()).getValor());
 
         // Questão 2
         double[] histograma = app.getHistogramaPratosPedidos();
