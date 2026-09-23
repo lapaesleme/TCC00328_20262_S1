@@ -14,43 +14,45 @@ public class App implements Serializable {
     private static int qtdPedidos;
 
     public void carregarPratos(String filename) throws
-            FileNotFoundException {
+            FileNotFoundException, IOException {
         pratos = new Prato[100];
         qtdPratos = 0;
 
-        InputStream is = new FileInputStream(filename);
-        Scanner sc = new Scanner(is);
-        while (sc.hasNext()) {
-            double valor = sc.nextDouble();
-            String nome = sc.nextLine();
-            Prato prato = new Prato(qtdPratos, nome, valor);
-            pratos[qtdPratos++] = prato;
+        try (InputStream is = new FileInputStream(filename);
+                Scanner sc = new Scanner(is);) {
+            while (sc.hasNext()) {
+                double valor = sc.nextDouble();
+                String nome = sc.nextLine();
+                Prato prato = new Prato(qtdPratos, nome, valor);
+                pratos[qtdPratos++] = prato;
+            }
         }
     }
 
     public void carregarPedidos(String filename) throws
-            FileNotFoundException {
+            FileNotFoundException, IOException {
         pedidos = new Pedido[100000];
         qtdPedidos = 0;
         Pedido pedido = null;
         int numeroItem = 0;
 
-        InputStream is = new FileInputStream(filename);
-        Scanner sc = new Scanner(is);
-        while (sc.hasNext()) {
-            int numero = sc.nextInt();
-            int quantidade = sc.nextInt();
-            String nomePrato = sc.nextLine();
-            Prato prato = buscarPrato(nomePrato);
+        try (InputStream is = new FileInputStream(filename);
+                Scanner sc = new Scanner(is);) {
+            while (sc.hasNext()) {
+                int numero = sc.nextInt();
+                int quantidade = sc.nextInt();
+                String nomePrato = sc.nextLine();
+                Prato prato = buscarPrato(nomePrato);
 
-            if (pedido == null || pedido.numero != numero) {
-                pedido = new Pedido(numero);
-                pedidos[qtdPedidos++] = pedido;
-                numeroItem = 0;
+                if (pedido == null || pedido.numero != numero) {
+                    pedido = new Pedido(numero);
+                    pedidos[qtdPedidos++] = pedido;
+                    numeroItem = 0;
+                }
+
+                Item item = new Item(prato, quantidade);
+                pedido.itens[numeroItem++] = item; //navegacao unidirecional
             }
-
-            Item item = new Item(prato, quantidade);
-            pedido.itens[numeroItem++] = item; //navegacao unidirecional
         }
     }
 
