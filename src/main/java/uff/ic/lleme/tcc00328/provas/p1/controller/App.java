@@ -70,17 +70,17 @@ public class App implements Serializable {
 
     public double[] getHistogramaPratosPedidos() {
         double[] histograma = new double[qtdPratos];
-        double totalPedidos = 0;
+        double totalItensPedidos = 0;
         for (Pedido pedido : pedidos)
             if (pedido != null)
                 for (Item item : pedido.itens)
                     if (item != null) {
                         histograma[item.prato.numero] += item.quantidade;
-                        totalPedidos += item.quantidade;
+                        totalItensPedidos += item.quantidade;
                     }
         for (int i = 0; i < histograma.length; i++)
-            if (totalPedidos > 0)
-                histograma[i] /= totalPedidos;
+            if (totalItensPedidos > 0)
+                histograma[i] /= totalItensPedidos;
         return histograma;
     }
 }
