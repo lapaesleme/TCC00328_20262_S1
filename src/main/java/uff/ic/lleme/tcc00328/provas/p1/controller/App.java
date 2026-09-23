@@ -64,7 +64,7 @@ public class App implements Serializable {
         return null;
     }
 
-    public double[] getPopularidadeDosPratos() {
+    public double[] getHistogramaPratosPedidos() {
         double[] histograma = new double[pratos.length];
         double totalPedidos = 0;
         for (Pedido pedido : pedidos)

@@ -29,7 +29,7 @@ public class Main {
         System.out.println("Informe o numero do pedido: ");
         System.out.println(app.buscarPedido(sc.nextInt()).valor());
 
-        double[] histograma = app.getPopularidadeDosPratos();
+        double[] histograma = app.getHistogramaPratosPedidos();
         imprimirHistograma(histograma);
 
     }
