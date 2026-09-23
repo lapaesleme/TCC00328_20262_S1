@@ -16,8 +16,18 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         App app = new App();
 
+        // Questão 1
         app.carregarPratos("src/main/java/uff/ic/lleme/tcc00328/provas/p1/pratos.txt");
         app.carregarPedidos("src/main/java/uff/ic/lleme/tcc00328/provas/p1/pedidos.txt");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o numero do pedido: ");
+        System.out.println(app.buscarPedido(sc.nextInt()).valor());
+
+        // Questão 2
+        double[] histograma = app.getHistogramaPratosPedidos();
+        imprimirHistograma(histograma);
+
         //
         // Isso nao faz parte da prova. Servira somente para comentar sobre serializacao de objetos.
         //
@@ -25,12 +35,6 @@ public class Main {
         app = null;
         app = load("src/main/java/uff/ic/lleme/tcc00328/provas/p1/app.bin");
         //
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Informe o numero do pedido: ");
-        System.out.println(app.buscarPedido(sc.nextInt()).valor());
-
-        double[] histograma = app.getHistogramaPratosPedidos();
-        imprimirHistograma(histograma);
 
     }
 
