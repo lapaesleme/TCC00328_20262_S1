@@ -38,6 +38,15 @@ public class Main {
 
     }
 
+    public static void imprimirHistograma(double[] histograma) {
+        for (int i = 0; i < histograma.length; i++) {
+            String prato = "   " + i;
+            System.out.println(prato.substring(prato.length() - 3) + ": "
+                    + new String(new char[(int) (100 * histograma[i])]).replace("\0", "X") + "|-> "
+                    + histograma[i] * 100 + "%");
+        }
+    }
+
     public static void save(Object obj, String filename) throws FileNotFoundException, IOException {
         try (OutputStream out = new FileOutputStream(filename, false);) {
             ObjectOutputStream s = new ObjectOutputStream(out);
@@ -50,15 +59,6 @@ public class Main {
         try (InputStream in = new FileInputStream(filename);) {
             ObjectInputStream s = new ObjectInputStream(in);
             return (App) s.readObject();
-        }
-    }
-
-    public static void imprimirHistograma(double[] histograma) {
-        for (int i = 0; i < histograma.length; i++) {
-            String prato = "   " + i;
-            System.out.println(prato.substring(prato.length() - 3) + ": "
-                    + new String(new char[(int) (100 * histograma[i])]).replace("\0", "X") + "|-> "
-                    + histograma[i] * 100 + "%");
         }
     }
 
