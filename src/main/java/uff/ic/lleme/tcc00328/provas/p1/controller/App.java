@@ -10,21 +10,18 @@ public class App implements Serializable {
 
     private static Prato[] pratos;
     private static Pedido[] pedidos;
-    private static int qtdPratos;
-    private static int qtdPedidos;
 
-    public void carregarPratos(String filename) throws
-            FileNotFoundException, IOException {
+    public void carregarPratos(String filename) throws FileNotFoundException, IOException {
         pratos = new Prato[100];
-        qtdPratos = 0;
+        int numero = 0;
 
         try (InputStream is = new FileInputStream(filename)) {
             Scanner sc = new Scanner(is);
             while (sc.hasNext()) {
                 double valor = sc.nextDouble();
                 String nome = sc.nextLine();
-                Prato prato = new Prato(qtdPratos, nome, valor);
-                pratos[qtdPratos++] = prato;
+                Prato prato = new Prato(numero, nome, valor);
+                pratos[numero++] = prato;
             }
         }
     }
@@ -32,7 +29,7 @@ public class App implements Serializable {
     public void carregarPedidos(String filename) throws
             FileNotFoundException, IOException {
         pedidos = new Pedido[100000];
-        qtdPedidos = 0;
+        int qtdPedidos = 0;
         Pedido pedido = null;
         int numeroItem = 0;
 
@@ -71,7 +68,8 @@ public class App implements Serializable {
     }
 
     public double[] getHistogramaPratosPedidos() {
-        double[] histograma = new double[qtdPratos];
+        int numero = 0;
+        double[] histograma = new double[numero];
         double totalItensPedidos = 0;
         for (Pedido pedido : pedidos)
             if (pedido != null)
