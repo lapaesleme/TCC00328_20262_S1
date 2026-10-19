@@ -1,11 +1,11 @@
 package uff.ic.lleme.tcc00328.trabalhos.luizandre.aula;
 
-public class ColecaoDeInteiros {
+public class MinhaColecao<E> {
 
-    private Integer[] lista = new Integer[10];
+    private Object[] lista = new Object[10];
     private int pos = -1;
 
-    public void adicionar(int n) {
+    public void adicionar(E n) {
         if (pos < lista.length - 1)
             lista[++pos] = n;
         else {
@@ -23,18 +23,18 @@ public class ColecaoDeInteiros {
                 lista[indice] = lista[pos--];
     }
 
-    public Integer obter(int indice) throws ArrayIndexOutOfBoundsException {
+    public E obter(int indice) throws ArrayIndexOutOfBoundsException {
         if (indice >= 0 && indice <= pos)
-            return lista[indice];
+            return (E) lista[indice];
         else
             throw new ArrayIndexOutOfBoundsException();
 
     }
 
     private void aumentarLista() {
-        Integer[] novaLista = new Integer[lista.length + 10];
+        Object[] novaLista = new Object[lista.length + 10];
         int pos = 0;
-        for (Integer n : lista)
+        for (Object n : lista)
             if (n != null)
                 novaLista[pos++] = n;
         lista = novaLista;

@@ -1,20 +1,20 @@
 package uff.ic.lleme.tcc00328.trabalhos.luizandre.aula;
 
-public class ListaDeNos {
+public class ListaDeNos<E> {
 
     private No primeiro = null;
 
     private class No {
 
-        public int conteudo;
+        public E conteudo;
         public No proximo;
 
-        public No(int conteudo) {
+        public No(E conteudo) {
             this.conteudo = conteudo;
         }
     }
 
-    public void adicionar(int n) {
+    public void adicionar(E n) {
         if (primeiro == null)
             primeiro = new No(n);
         else {
@@ -23,6 +23,10 @@ public class ListaDeNos {
             primeiro = novoNo;
         }
 
+    }
+
+    public E obter(int index) {
+        return null;
     }
 
 }

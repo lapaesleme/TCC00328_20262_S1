@@ -32,7 +32,8 @@ public class AlunoRegular extends AlunoImpl {
     }
 
     public String toString() {
-        return getMatricula() + ", " + getNome();
+        String str = super.toString();
+        return str + ":" + getMatricula() + ", " + getNome();
     }
 
     public Integer getId() {
