@@ -10,7 +10,14 @@ public class Aluno {
         nome = n;
     }
 
-    public boolean equals(Aluno o) {
-        return this.matricula == o.matricula && this.nome.equals(o.nome);
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Aluno a = (Aluno) obj;
+        return this.matricula == a.matricula && this.nome.equals(a.nome);
     }
+
 }
