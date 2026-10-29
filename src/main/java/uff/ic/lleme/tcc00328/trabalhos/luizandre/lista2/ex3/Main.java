@@ -22,6 +22,8 @@ public class Main {
 
         System.out.println(buscar(lista2, a));
 
+        System.out.println(maior(lista2));
+
     }
 
     public static <T> int buscar(List<T> lista, T elemento) {
@@ -32,6 +34,16 @@ public class Main {
                 return pos;
         }
         return -1;
+    }
+
+    public static <T extends Comparable<T>> T maior(List<T> lista) {
+        T maior = null;
+        for (T elem : lista)
+            if (maior == null)
+                maior = elem;
+            else if (elem.compareTo(maior) > 0)
+                maior = elem;
+        return maior;
     }
 
 }

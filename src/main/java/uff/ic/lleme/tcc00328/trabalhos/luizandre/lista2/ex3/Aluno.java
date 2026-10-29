@@ -1,13 +1,17 @@
 package uff.ic.lleme.tcc00328.trabalhos.luizandre.lista2.ex3;
 
-public class Aluno {
+public class Aluno implements Comparable<Aluno> {
 
-    public int matricula;
+    public Integer matricula;
     public String nome;
 
     public Aluno(int m, String n) {
         matricula = m;
         nome = n;
+    }
+
+    public boolean equals(Aluno obj) {
+        return this.matricula == obj.matricula && this.nome.equals(obj.nome);
     }
 
     @Override
@@ -18,6 +22,15 @@ public class Aluno {
             return false;
         Aluno a = (Aluno) obj;
         return this.matricula == a.matricula && this.nome.equals(a.nome);
+    }
+
+    @Override
+    public int compareTo(Aluno o) {
+        return matricula.compareTo(o.matricula);
+    }
+
+    public String toString() {
+        return matricula + ", " + nome;
     }
 
 }
