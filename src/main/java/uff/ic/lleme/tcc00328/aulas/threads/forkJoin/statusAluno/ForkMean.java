@@ -9,7 +9,7 @@ public class ForkMean extends RecursiveAction {
     private int inicio = 0;
     private int fim = 0;
     private List<Aluno> alunos = new ArrayList<>();
-    protected static int tamanhoJob = 5_000_000;
+    protected static int tamanhoJob = 20_000_000;
 
     public ForkMean(List<Aluno> alunos) {
         this.alunos = alunos;
@@ -32,11 +32,20 @@ public class ForkMean extends RecursiveAction {
 
     @Override
     protected void compute() {
-        if (fim - inicio < tamanhoJob)
+
+        if (fim - inicio < tamanhoJob) {
+            System.out.println(this + ": calculando.");
             computeDirectly();
-        else {
+        } else {
             int meio = (inicio + fim) / 2;
-            invokeAll(new ForkMean(alunos, inicio, meio), new ForkMean(alunos, meio, fim));
+            System.out.println(this + ": muito grande, dividindo e encerrando.");
+            (new ForkMean(alunos, inicio, meio)).fork();
+            (new ForkMean(alunos, meio, fim)).fork();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Compute " + inicio + "-" + fim + ":";
     }
 }

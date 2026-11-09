@@ -14,9 +14,10 @@ public class DoubleNumber extends RecursiveAction {
     static final Object lock = new Object();
     static final AtomicLong counter = new AtomicLong();
     final long id = DoubleNumber.counter.getAndIncrement();
-    ///////////////////////////////////////////////////
 
-    DoubleNumber(double[] array, int startIndex, int endIndex) {
+    //////////////////////////////////////////////////
+
+    public DoubleNumber(double[] array, int startIndex, int endIndex) {
         this.array = array;
         this.startIndex = startIndex;
         this.endIndex = endIndex;
