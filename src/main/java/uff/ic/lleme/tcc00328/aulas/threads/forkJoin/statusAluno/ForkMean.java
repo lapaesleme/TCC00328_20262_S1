@@ -9,7 +9,7 @@ public class ForkMean extends RecursiveAction {
     private int inicio = 0;
     private int fim = 0;
     private List<Aluno> alunos = new ArrayList<>();
-    protected static int tamanhoJob = 20_000_000;
+    protected static int tamanhoJob = 1_000_000;
 
     public ForkMean(List<Aluno> alunos) {
         this.alunos = alunos;
