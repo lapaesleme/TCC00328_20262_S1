@@ -1,36 +1,41 @@
 package uff.ic.lleme.tcc00328.provas.vr.universidade.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Turma implements Serializable {
 
     public String codigo = null;
-    public final Map<String, Aluno> alunos = new HashMap<>();
-    public final Map<String, Notas> notas = new HashMap<>();
+
+    public final Map<String, Participacao> participacoes = new HashMap<>();
 
     public Turma(String codigo) {
         this.codigo = codigo;
     }
 
-    public void inscreverAluno(Aluno aluno) {
-        if (!alunos.containsKey(aluno.matricula)) {
-            this.alunos.put(aluno.matricula, aluno);
-        } else {
-            System.out.println("Aluno já cadastrado.");
-        }
+    public void inscreverAluno(Participacao participacao) {
+        if (participacao.turma == this
+                && !participacoes.containsKey(participacao.aluno.matricula))
+            this.participacoes.put(participacao.aluno.matricula, participacao);
+        else
+            System.out.println("Aluno já cadastrado ou é participação em outra turma.");
     }
 
-    public Map<String, Aluno> listAlunos() {
+    public List<Aluno> listAlunos() {
+        ArrayList<Aluno> alunos = new ArrayList<>();
+        for (Participacao p : participacoes.values())
+            alunos.add(p.aluno);
         return alunos;
     }
 
-    public void incluirNotas(float p1, float p2, Aluno a) {
-        if (alunos.containsKey(a.matricula)) {
-            notas.put(a.matricula, new Notas(p1, p2, a));
-        } else {
+    public void incluirNotas(double p1, double p2, Aluno a) {
+        if (participacoes.containsKey(a.matricula)) {
+            participacoes.get(a.matricula).p1 = p1;
+            participacoes.get(a.matricula).p2 = p2;
+        } else
             System.out.println("Aluno nao esta inscrito na turma.");
-        }
     }
 }

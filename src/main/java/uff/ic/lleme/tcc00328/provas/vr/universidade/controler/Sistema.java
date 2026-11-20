@@ -8,12 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import uff.ic.lleme.tcc00328.provas.vr.universidade.model.Aluno;
 import uff.ic.lleme.tcc00328.provas.vr.universidade.model.Disciplina;
-import uff.ic.lleme.tcc00328.provas.vr.universidade.model.Notas;
+import uff.ic.lleme.tcc00328.provas.vr.universidade.model.Participacao;
 import uff.ic.lleme.tcc00328.provas.vr.universidade.model.Turma;
 
 public class Sistema {
@@ -45,23 +46,22 @@ public class Sistema {
         return d;
     }
 
-    public static Turma criarTurma(String a120152, Disciplina d1) {
-        return d1.criarTurma(a120152);
+    public static Turma criarTurma(String turma, Disciplina disciplina) {
+        return disciplina.criarTurma(turma);
     }
 
     public static void inscreverAluno(Aluno aluno, Turma t1) {
-        t1.inscreverAluno(aluno);
+        t1.inscreverAluno(new Participacao(aluno, t1));
     }
 
     public static void capturarNotas(String turma, Disciplina d1) {
         Turma t = d1.getTurma(turma);
-        if (t == null) {
+        if (t == null)
             System.out.println("Turma inexistente");
-        } else {
+        else {
             Scanner sc = new Scanner(System.in);
-            Map<String, Aluno> inscritos = t.listAlunos();
-            for (Entry<String, Aluno> e : inscritos.entrySet()) {
-                Aluno a = e.getValue();
+            List<Aluno> inscritos = t.listAlunos();
+            for (Aluno a : inscritos) {
                 System.out.println("P1 de " + a.nome);
                 float p1 = sc.nextFloat();
                 System.out.println("P2 de " + a.nome);
@@ -76,8 +76,8 @@ public class Sistema {
             System.out.println(d.getValue().name);
             for (Entry<String, Turma> t : d.getValue().turmas.entrySet()) {
                 System.out.println(t.getValue().codigo);
-                for (Entry<String, Notas> n : t.getValue().notas.entrySet()) {
-                    Notas notas = n.getValue();
+                for (Entry<String, Participacao> n : t.getValue().participacoes.entrySet()) {
+                    Participacao notas = n.getValue();
                     System.out.println(notas.aluno.nome + " situação: " + notas.situacao());
                 }
             }
