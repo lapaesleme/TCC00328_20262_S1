@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Sistema.carregar("universidade.dat");
-        Aluno a1 = Sistema.cadastrarAluno("123", "Luiz");
+        Aluno a1 = Sistema.cadastrarAluno("123", "Anderson");
         Aluno a2 = Sistema.cadastrarAluno("456", "Andre");
         Disciplina d1 = Sistema.criarDisciplina("D1", "POO");
         Disciplina d2 = Sistema.criarDisciplina("D2", "Prog I");

@@ -1,0 +1,15 @@
+package uff.ic.lleme.tcc00328.provas.vs;
+
+public class Jurado {
+
+    public String nome = null;
+    public Quesito quesito = null;
+
+    private Jurado() {
+    }
+
+    public Jurado(String nome, Quesito quesito) {
+        this.nome = nome;
+        this.quesito = quesito;
+    }
+}

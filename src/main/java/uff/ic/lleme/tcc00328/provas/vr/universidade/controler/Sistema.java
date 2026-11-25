@@ -23,15 +23,15 @@ public class Sistema {
     private static Map<String, Aluno> alunos = new HashMap<>();
 
     public static Aluno cadastrarAluno(String matricula, String nome) {
-        Aluno a;
+        Aluno alunoNovo;
         if (!alunos.containsKey(matricula)) {
-            a = new Aluno(matricula, nome);
-            alunos.put(matricula, a);
+            alunoNovo = new Aluno(matricula, nome);
+            alunos.put(matricula, alunoNovo);
         } else {
-            a = alunos.get(matricula);
+            alunoNovo = alunos.get(matricula);
             System.out.println("Disciplina já cadastrada.");
         }
-        return a;
+        return alunoNovo;
     }
 
     public static Disciplina criarDisciplina(String codigo, String nome) {
@@ -47,26 +47,27 @@ public class Sistema {
     }
 
     public static Turma criarTurma(String turma, Disciplina disciplina) {
-        return disciplina.criarTurma(turma);
+        Turma turmaNova = disciplina.criarTurma(turma);
+        return turmaNova;
     }
 
     public static void inscreverAluno(Aluno aluno, Turma t1) {
         t1.inscreverAluno(new Participacao(aluno, t1));
     }
 
-    public static void capturarNotas(String turma, Disciplina d1) {
-        Turma t = d1.getTurma(turma);
-        if (t == null)
+    public static void capturarNotas(String codTurma, Disciplina d1) {
+        Turma turma = d1.getTurma(codTurma);
+        if (turma == null)
             System.out.println("Turma inexistente");
         else {
             Scanner sc = new Scanner(System.in);
-            List<Aluno> inscritos = t.listAlunos();
+            List<Aluno> inscritos = turma.listAlunos();
             for (Aluno a : inscritos) {
                 System.out.println("P1 de " + a.nome);
                 float p1 = sc.nextFloat();
                 System.out.println("P2 de " + a.nome);
                 float p2 = sc.nextFloat();
-                t.incluirNotas(p1, p2, a);
+                turma.incluirNotas(p1, p2, a);
             }
         }
     }

@@ -15,10 +15,8 @@ public class MainForkMean {
             List<Aluno> alunos = inicializarListaDeAlunos();
 
             Date inicio = new Date();
-            for (int i = 0; i < alunos.size(); i++) {
-                Aluno aluno = alunos.get(i);
+            for (Aluno aluno : alunos)
                 aluno.situacao = (aluno.n1 + aluno.n2) / 2 >= 6 ? "aprovado" : "reprovado";
-            }
             Date fim = new Date();
 
             duracao1 = fim.getTime() - inicio.getTime();
